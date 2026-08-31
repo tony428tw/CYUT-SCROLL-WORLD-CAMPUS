@@ -1,0 +1,4 @@
+export interface WorldState { index: number; progress: number; mode: 'static' | 'fallback' | 'ready' | 'loading'; transit: boolean }
+export interface WorldSection { id:string; label:string; still:string; endStill?:string; clip?:string; accent?:string; scroll?:number; linger?:number; eyebrow?:string; title?:string; body?:string; tags?:string[]; cta?:{primary?:{label:string;href:string};secondary?:{label:string;href:string}} }
+export interface WorldController {jumpTo(index:number):void;seekProgress(progress:number):void;destroy():void}
+export function mountScrollWorld(container:HTMLElement, config:{sections:WorldSection[];connectors?: (string|null)[];diveScroll?:number;connScroll?:number;crossfade?:number;nav?:boolean;atmosphere?:boolean;hint?:string;reducedMotion?:boolean;onUpdate?:(state:WorldState)=>void}):WorldController;
